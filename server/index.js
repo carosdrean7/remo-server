@@ -3,7 +3,7 @@ const http = require('http')
 const socketio = require('socket.io')
 const cors = require('cors')
 const { mongoose } = require('./database')
-const user_routes = require('./routes/user.routes')
+const nivel_routes = require('./routes/nivel.routes')
 
 const app = express()
 const server  = http.createServer(app)
@@ -16,7 +16,7 @@ app.use(cors({origin: ['https://lapizcero-8938e.firebaseapp.com', 'http://localh
 const io = socketio.listen(server)
 require('./sockets')(io)
 
-app.use('/users', user_routes)
+app.use('/niveles', nivel_routes)
 
 server.listen(app.get('port'), () => {
     console.log('server activos')
