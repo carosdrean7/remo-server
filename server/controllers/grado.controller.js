@@ -1,17 +1,17 @@
 const GradoModel = require('../models/grado')
 const grado = {}
 
-grado.getgrados = async (req, res) => {
+grado.getGrados = async (req, res) => {
     const grados = await GradoModel.find()
     res.json(grados)
 }
 
-grado.getgrado = async (req, res) => {
+grado.getGrado = async (req, res) => {
     const grado = await GradoModel.findById(req.params.id)
     res.json(grado)
 }
 
-grado.creategrado = async (req, res) => {
+grado.createGrado = async (req, res) => {
     const grado = new GradoModel(req.body)
     await grado.save()
     res.json({
@@ -19,7 +19,7 @@ grado.creategrado = async (req, res) => {
     })
 }
 
-grado.editgrado = async (req, res) => {
+grado.editGrado = async (req, res) => {
     const grado = {
         nombre: req.body.nombre,
         _idGrado: req.body._idGrado        
@@ -28,7 +28,7 @@ grado.editgrado = async (req, res) => {
     res.json({'message': 'Grado Actualizada'})
 }
 
-grado.deletegrado = async (req, res) => {
+grado.deleteGrado = async (req, res) => {
     await GradoModel.findByIdAndRemove(req.params.id)
     res.json({'message': 'Grado Eliminada'})
 }

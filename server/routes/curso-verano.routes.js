@@ -3,10 +3,10 @@ const curso_verano = require('../controllers/curso-verano.controller')
 
 const router = express.Router()
 
-router.get('/', curso_verano.getAurso_veranos)
-router.post('/', curso_verano.createCurso_verano)
-router.get('/:id', curso_verano.getCurso_verano)
-router.put('/:id', curso_verano.editCurso_verano)
-router.delete('/:id', curso_verano.deleteCurso_verano)
+router.get('/', curso_verano.getCursoVeranos)
+router.post('/', curso_verano.createCursoVerano)
+router.get('/:id', curso_verano.getCursoVerano)
+router.put('/:id', curso_verano.editCursoVerano)
+router.delete('/:id', curso_verano.deleteCursoVerano)
 
 module.exports = router

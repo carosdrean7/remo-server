@@ -1,17 +1,17 @@
 const LibroModel = require('../models/libro')
 const libro = {}
 
-libro.getlibros = async (req, res) => {
+libro.getLibros = async (req, res) => {
     const libros = await LibroModel.find()
     res.json(libros)
 }
 
-libro.getlibro = async (req, res) => {
+libro.getLibro = async (req, res) => {
     const libro = await LibroModel.findById(req.params.id)
     res.json(libro)
 }
 
-libro.createlibro = async (req, res) => {
+libro.createLibro = async (req, res) => {
     const libro = new LibroModel(req.body)
     await libro.save()
     res.json({
@@ -19,7 +19,7 @@ libro.createlibro = async (req, res) => {
     })
 }
 
-libro.editlibro = async (req, res) => {
+libro.editLibro = async (req, res) => {
     const libro = {
         nombre: req.body.nombre,
         _idGrado: req.body._idGrado        
@@ -28,7 +28,7 @@ libro.editlibro = async (req, res) => {
     res.json({'message': 'Libro Actualizada'})
 }
 
-libro.deletelibro = async (req, res) => {
+libro.deleteLibro = async (req, res) => {
     await LibroModel.findByIdAndRemove(req.params.id)
     res.json({'message': 'Libro Eliminada'})
 }

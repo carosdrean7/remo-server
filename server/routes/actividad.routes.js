@@ -3,7 +3,7 @@ const actividad = require('../controllers/actividad.controller')
 
 const router = express.Router()
 
-router.get('/', actividad.getActividads)
+router.get('/', actividad.getActividad)
 router.post('/', actividad.createActividad)
 router.get('/:id', actividad.getActividad)
 router.put('/:id', actividad.editActividad)

@@ -1,17 +1,17 @@
 const DocenteModel = require('../models/docente')
 const docente = {}
 
-docente.getdocentes = async (req, res) => {
+docente.getDocentes = async (req, res) => {
     const docentes = await DocenteModel.find()
     res.json(docentes)
 }
 
-docente.getdocente = async (req, res) => {
+docente.getDocente = async (req, res) => {
     const docente = await DocenteModel.findById(req.params.id)
     res.json(docente)
 }
 
-docente.createdocente = async (req, res) => {
+docente.createDocente = async (req, res) => {
     const docente = new DocenteModel(req.body)
     await docente.save()
     res.json({
@@ -19,7 +19,7 @@ docente.createdocente = async (req, res) => {
     })
 }
 
-docente.editdocente = async (req, res) => {
+docente.editDocente = async (req, res) => {
     const docente = {
         nombre: req.body.nombre,
         _idGrado: req.body._idGrado        
@@ -28,7 +28,7 @@ docente.editdocente = async (req, res) => {
     res.json({'message': 'Docente Actualizada'})
 }
 
-docente.deletedocente = async (req, res) => {
+docente.deleteDocente = async (req, res) => {
     await DocenteModel.findByIdAndRemove(req.params.id)
     res.json({'message': 'Docente Eliminada'})
 }
