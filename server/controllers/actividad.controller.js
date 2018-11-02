@@ -21,8 +21,10 @@ actividad.createActividad = async (req, res) => {
 
 actividad.editActividad = async (req, res) => {
     const actividad = {
-        nombre: req.body.nombre,
-        precio: req.body.precio
+        titulo: req.body.titulo,
+        fecha: req.body.fecha,
+        tipo: req.body.tipo,
+        descripcion: req.body.descripcion
     }
     await ActividadModel.findByIdAndUpdate(req.params.id, {$set: actividad}, {new: true})
     res.json({'message': 'Actividad Actualizada'})

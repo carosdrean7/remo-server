@@ -21,8 +21,10 @@ nosotros.createnosotros = async (req, res) => {
 
 nosotros.editnosotros = async (req, res) => {
     const nosotros = {
-        nombre: req.body.nombre,
-        _idGrado: req.body._idGrado        
+        presentacion: req.body.presentacion,
+        mision: req.body.mision,
+        vision: req.body.vision,
+        historia: req.body.historia      
     }
     await NosotrosModel.findByIdAndUpdate(req.params.id, {$set: nosotros}, {new: true})
     res.json({'message': 'Nosotros Actualizada'})

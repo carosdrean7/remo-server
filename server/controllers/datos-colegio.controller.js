@@ -21,8 +21,9 @@ datosColegio.creatDatosColegio = async (req, res) => {
 
 datosColegio.editDatosColegio = async (req, res) => {
     const datosColegio = {
-        nombre: req.body.nombre,
-        _idGrado: req.body._idGrado        
+        nombreColegio: req.body.nombreColegio,
+        direccion: req.body.direccion,
+        telefono: req.body.telefono        
     }
     await DatosColegioModel.findByIdAndUpdate(req.params.id, {$set: datosColegio}, {new: true})
     res.json({'message': 'Datos colegio Actualizada'})

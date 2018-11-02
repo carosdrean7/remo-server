@@ -22,7 +22,10 @@ docente.createDocente = async (req, res) => {
 docente.editDocente = async (req, res) => {
     const docente = {
         nombre: req.body.nombre,
-        _idGrado: req.body._idGrado        
+        apellido: req.body.apellido,
+        telefono: req.body.telefono,
+        sexo: req.body.sexo,
+        fechaNacimiento: req.body.fechaNacimiento
     }
     await DocenteModel.findByIdAndUpdate(req.params.id, {$set: docente}, {new: true})
     res.json({'message': 'Docente Actualizada'})

@@ -21,8 +21,11 @@ personaadministrativa.createpersonaAdministrativa = async (req, res) => {
 
 personaadministrativa.editpersonaAdministrativa = async (req, res) => {
     const personaadministrativa = {
-        nombre: req.body.nombre,
-        _idGrado: req.body._idGrado        
+        gradoAcademico: req.body.gradoAcademico,
+        photoUrl: req.body.photoUrl,
+        presentacion: req.body.presentacion,
+        cargo: req.body.cargo,
+        telefono: req.body.telefono        
     }
     await Persona_administrativaModel.findByIdAndUpdate(req.params.id, {$set: personaadministrativa}, {new: true})
     res.json({'message': 'Persona administrativa Actualizada'})

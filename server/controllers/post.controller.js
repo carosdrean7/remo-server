@@ -21,8 +21,9 @@ post.createpost = async (req, res) => {
 
 post.editpost = async (req, res) => {
     const post = {
-        nombre: req.body.nombre,
-        _idGrado: req.body._idGrado        
+        contenido: req.body.contenido,
+        titulo: req.body.titulo,
+        fechaPublicacion: req.body.fechaPublicacion        
     }
     await PostModel.findByIdAndUpdate(req.params.id, {$set: post}, {new: true})
     res.json({'message': 'Post Actualizada'})

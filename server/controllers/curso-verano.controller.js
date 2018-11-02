@@ -22,7 +22,9 @@ cursoVerano.createCursoVerano = async (req, res) => {
 cursoVerano.editCursoVerano = async (req, res) => {
     const cursoVerano = {
         nombre: req.body.nombre,
-        precio: req.body.precio
+        descripcion: req.body.descripcion,
+        fechaInicio: req.body.fechaInicio,
+        id_Docente: req.body.id_docente
     }
     await CursoVeranoModel.findByIdAndUpdate(req.params.id, {$set: cursoVerano}, {new: true})
     res.json({'message': 'Curso de verano Actualizada'})

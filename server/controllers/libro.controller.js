@@ -22,7 +22,10 @@ libro.createLibro = async (req, res) => {
 libro.editLibro = async (req, res) => {
     const libro = {
         nombre: req.body.nombre,
-        _idGrado: req.body._idGrado        
+        autor: req.body.autor,
+        edicion: req.body.edicion,
+        idCurso: req.body.idCurso
+
     }
     await LibroModel.findByIdAndUpdate(req.params.id, {$set: libro}, {new: true})
     res.json({'message': 'Libro Actualizada'})

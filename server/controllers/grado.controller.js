@@ -22,7 +22,8 @@ grado.createGrado = async (req, res) => {
 grado.editGrado = async (req, res) => {
     const grado = {
         nombre: req.body.nombre,
-        _idGrado: req.body._idGrado        
+        turno: req.body.turno,
+        idNivel: req.body.idNivel        
     }
     await GradoModel.findByIdAndUpdate(req.params.id, {$set: grado}, {new: true})
     res.json({'message': 'Grado Actualizada'})
