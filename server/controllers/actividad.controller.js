@@ -24,6 +24,7 @@ actividad.editActividad = async (req, res) => {
         titulo: req.body.titulo,
         fecha: req.body.fecha,
         tipo: req.body.tipo,
+        fechaFin: req.body.fechaFin,
         descripcion: req.body.descripcion
     }
     await ActividadModel.findByIdAndUpdate(req.params.id, {$set: actividad}, {new: true})
